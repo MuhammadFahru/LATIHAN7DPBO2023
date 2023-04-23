@@ -21,4 +21,4 @@ Bismillah Saya Muhammad Fahru Rozi [2108927] mengerjakan soal Latihan Praktikum 
 
 ## Dokumentasi
 
-...
+https://user-images.githubusercontent.com/59097913/233842187-b9df5373-d038-4d0d-ae89-ce2f7b3264c8.mp4
