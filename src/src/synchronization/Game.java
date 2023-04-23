@@ -46,7 +46,7 @@ public class Game extends Canvas implements Runnable
         try
         {
             // Initialize display.
-            display = new Display(width, height, "Synchronization Tutorial");
+            display = new Display(width, height, "LP7C1DPBO2023 - Muhammad Fahru Rozi");
             display.open(this); 
             
             // Initialize game handler.
