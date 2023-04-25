@@ -11,6 +11,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 
 /**
  *
@@ -35,10 +36,13 @@ public class Game extends Canvas implements Runnable
     
     /* Animation-related attributes. */
     private boolean startCounting = false;
-    private int score = 0;
+    private int scoreMove = 0;
+    private int scoreHit = 0;
     private int counter = 0;
     private int stateCounter = 0;
     private int direction = 0;
+    
+    Random random = new Random();
     
     // Default constructor.
     public Game()
@@ -61,7 +65,13 @@ public class Game extends Canvas implements Runnable
             running = true;
             if(running)
             {
+                // Player
                 handler.add(new Player(320, 160));
+                
+                // Target
+                int x = random.nextInt(width / 30) * 30;
+                int y = random.nextInt(height / 30) * 30;
+                handler.add(new Target(x, y));
             }
         } catch(Exception e)
         {
@@ -88,14 +98,24 @@ public class Game extends Canvas implements Runnable
     
     /* Game score. */
     
-    public int getScore()
+    public int getScoreMove()
     {
-        return score;
+        return scoreMove;
     }
 
-    public void setScore(int score)
+    public void setScoreMove(int score)
     {
-        this.score += score;
+        this.scoreMove += score;
+    }
+    
+    public int getScoreHit()
+    {
+        return scoreHit;
+    }
+
+    public void setScoreHit(int score)
+    {
+        this.scoreHit += score;
     }
     
     /**
@@ -177,8 +197,11 @@ public class Game extends Canvas implements Runnable
             Font newFont = oldFont.deriveFont(oldFont.getSize() * 1.3f);
             g.setFont(newFont);
             
-            g.setColor(Color.blue);
-            g.drawString("Score : " + Integer.toString(score), 20, 30);
+            g.setColor(Color.white);
+            g.drawString("Score Move : " + Integer.toString(scoreMove), 20, 30);
+            
+            g.setColor(Color.white);
+            g.drawString("Score Hit : " + Integer.toString(scoreHit), 20, 50);
             
         }
         
@@ -191,6 +214,7 @@ public class Game extends Canvas implements Runnable
     public void loop()
     {
         GameObject player = null;
+        GameObject target = null;
         
         handler.loop();
         if(this.running)
@@ -219,6 +243,17 @@ public class Game extends Canvas implements Runnable
                 {
                     player = handler.get(i);
                 }
+                if(handler.get(i).getType().equals("Target"))
+                {
+                    target = handler.get(i);
+                }
+            }
+            
+            if(handler.hit(player, target))
+            {
+                scoreHit += 5;
+                System.out.println("HIT Target +5 Score Hit");
+                target.setRandomPos(width, height);
             }
         }
     }

@@ -5,6 +5,7 @@
 package synchronization;
 
 import java.awt.Graphics;
+import java.util.Random;
 
 /**
  *
@@ -20,6 +21,7 @@ public class GameObject implements GameInterface
     protected int width, height; // Dimension.
     protected int velX, velY;    // Velocity.
     protected String type;       // Object type.
+    Random random = new Random();
     
     /**
      * Constructor.
@@ -135,6 +137,12 @@ public class GameObject implements GameInterface
     public void setType(String type)
     {
         this.type = type;
+    }
+    
+    public void setRandomPos(int width, int height)
+    {
+        this.setX(random.nextInt(width));
+        this.setY(random.nextInt(height));
     }
     
     /**

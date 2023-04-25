@@ -66,6 +66,11 @@ public class Handler implements GameInterface
         this.object.remove(object);
     }
     
+    public boolean hit(GameObject player, GameObject target)
+    {
+        return ((player.getX() + 20) >= target.getX() && player.getX() <= (target.getX() + 20)) && ((player.getY() + 20) >= target.getY() && player.getY() <= (target.getY() + 20));
+    }
+    
     /**
      * 
      * Override interface.

@@ -21,6 +21,7 @@ public class Controller extends KeyAdapter implements KeyListener
     private Game game;
     private Handler handler;
     private boolean keyPressed = false;
+    private int lastDirection = 0;
     
     /**
      * Constructor.
@@ -103,29 +104,41 @@ public class Controller extends KeyAdapter implements KeyListener
                 {
                     // Move up.
                     temp.setVelY(-5);
-                    game.setScore(+1);
-                    System.out.println("UP +1 Score");
+                    if (this.lastDirection != 1) {
+                        game.setScoreMove(+1);
+                        System.out.println("UP +1 Score Move");
+                    }
+                    this.lastDirection = 1;
                 }
                 if((key == KeyEvent.VK_A) || (key == KeyEvent.VK_LEFT))
                 {
                     // Move left.
                     temp.setVelX(-5);
-                    game.setScore(+1);
-                    System.out.println("LEFT +1 Score");
+                    if (this.lastDirection != 2) {
+                        game.setScoreMove(+1);
+                        System.out.println("LEFT +1 Score Move");
+                    }
+                    this.lastDirection = 2;
                 }
                 if((key == KeyEvent.VK_S) || (key == KeyEvent.VK_DOWN))
                 {
                     // Move down.
                     temp.setVelY(+5);
-                    game.setScore(+1);
-                    System.out.println("DOWN +1 Score");
+                    if (this.lastDirection != 3) {
+                        game.setScoreMove(+1);
+                        System.out.println("DOWN +1 Score Move");
+                    }
+                    this.lastDirection = 3;
                 }
                 if((key == KeyEvent.VK_D) || (key == KeyEvent.VK_RIGHT))
                 {
                     // Move right.
                     temp.setVelX(+5);
-                    game.setScore(+1);
-                    System.out.println("RIGHT +1 Score");
+                    if (this.lastDirection != 4) {
+                        game.setScoreMove(+1);
+                        System.out.println("RIGHT +1 Score Move");
+                    }
+                    this.lastDirection = 4;
                 }
             }
 
