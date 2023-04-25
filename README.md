@@ -13,7 +13,7 @@ Bismillah Saya Muhammad Fahru Rozi [2108927] mengerjakan soal Latihan Praktikum 
 
 ## Desain Program
 
-...
+Dari code program yang disediakan saya hanya menambahkan satu class yaitu **Target.java** untuk create sebuah kotak yang dijadikan target sehingga player bisa hit untuk mendapatkan score.
 
 ## Penjelasan Alur
 
@@ -21,4 +21,6 @@ Bismillah Saya Muhammad Fahru Rozi [2108927] mengerjakan soal Latihan Praktikum 
 
 ## Dokumentasi
 
-https://user-images.githubusercontent.com/59097913/233842187-b9df5373-d038-4d0d-ae89-ce2f7b3264c8.mp4
+https://user-images.githubusercontent.com/59097913/234334742-5ce8cbe1-d678-49af-8cd8-7d45320fad40.mp4
+
+https://user-images.githubusercontent.com/59097913/234334774-e50e2e6f-5aa5-4581-884d-7278afdc9a95.mp4
