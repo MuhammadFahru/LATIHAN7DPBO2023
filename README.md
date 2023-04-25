@@ -13,11 +13,12 @@ Bismillah Saya Muhammad Fahru Rozi [2108927] mengerjakan soal Latihan Praktikum 
 
 ## Desain Program
 
-Dari code program yang disediakan saya hanya menambahkan satu class yaitu **Target.java** untuk create sebuah kotak yang dijadikan target sehingga player bisa hit untuk mendapatkan score.
+Dari code program yang disediakan saya hanya menambahkan satu class yaitu **Target.java** untuk membuat sebuah kotak yang dijadikan target sehingga player bisa hit untuk mendapatkan score.
 
 ## Penjelasan Alur
 
-...
+1. Setiap **Player** bergerak, maka Score Move +1 dengan syarat movement sebelumnya tidak boleh sama dengan movement yang akan dilakukan. Contoh: kanan -> kanan +0 score karena bergerak ke arah yang sama berurutan. Dalam code program pada **Controller.java** saya membuat variable integer baru yaitu lastDirection untuk menyimpan tanda arah manakah yang menjadi pergerakan terkahir player. Untuk tanda nya saya set 1 = UP, 2 = LEFT, 3 = DOWN, 4 = RIGHT. Saya juga menambahkan handling jika key ditekan dan dihold maka Score Move akan tetap +1 dengan cara menambah variable boolean baru yaitu keyPressed, variable ini berfungsi sebagai tanda apakah key sudah *released* atau masih dalam keadaan *pressed*.
+2. Saya menambahkan class **Target.java** untuk membuat sebuah kotak yang dijadikan target sehingga player bisa hit target tersebut dan mendapatkan Score Hit. Tiap player menabrak/hit target tersebut maka Score Hit +5. Untuk code program nya saya membuatnya kurang lebih sama dengan class **Player.java**, tetapi karena ada object baru ini saya menyesuaikannya di beberapa file yaitu pada **Game.java** pada function *constructor* saya menambahkan untuk spawn Target dengan posisi random. Pada **GameObject.java** saya membuat function baru yaitu *setRandomPos* untuk generate random position yang digunakan pada object Target. Pada class **Handler.java** saya menambahkan function *hit* yang mengembalikan nilai boolean untuk mendeteksi apakah object Player melakukan hit/tabrakan pada object Target, function ini mengecek apakah posisi player dan target sama atau tidak. Saat Player bergerakan untuk melakukan hit/tabrakan pada Target, posisinya kadang tidak benar-benar sama jadi saya memberikan kondisi space perkiraan sekitar 20 an pada pengecekan titik kordinat kedua object tersebut.
 
 ## Dokumentasi
 
